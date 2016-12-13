@@ -21,8 +21,8 @@
 
 3. cases
 
-	3.1 查找/usr/local目录下所有包含”rubyer.me”的文件。
+3.1 查找/usr/local目录下所有包含”rubyer.me”的文件。
 		grep -lr 'rubyer.me' /usr/local/*
 		
-	3.2 搜索没有the的行,并输出行号
+3.2 搜索没有the的行,并输出行号
 		grep -nv 'the' regular_express.txt
