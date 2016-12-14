@@ -1,0 +1,7 @@
+1. 找出某个进程的id
+ps -ef|grep stage_daily_inc | awk '{print  $2}'
+
+2. 删除前66个带log名字的文件
+count=66 
+count=$[$count+1] 
+ls -t $dataLogDir/log.* | tail -n +$count | xargs rm -f 
