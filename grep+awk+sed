@@ -1,0 +1,37 @@
+grep
+
+grep daniel /etc/passwd
+daniel:x:8175:150:Daniel 
+Morrison:/users/staff/daniel:/bin/bash
+$ grep ­i morrison /etc/passwd
+$ grep ­v bash /etc/passwd
+
+awk
+
+$ awk '{print $N}' input.txt
+<field N>
+$ awk ­F: '/Daniel/ {print $5}' /etc/passwd
+Daniel Bourgault DK STUDENT LOCKED NOV­07
+Rick Danielson
+Daniel Morrison
+
+
+sed
+
+$ sed 's/Daniel/DANIEL/' /etc/passwd
+“leaning toothpicks”
+$ sed 's/\/bin\/bash/\/bin\/zsh/' /etc/passwd
+$ sed 's%/bin/bash%/bin/zsh%' /etc/passwd
+$ sed 's/one/two/g' mydata.txt
+
+tr
+
+tr ':' ',' /etc/passwd
+ONE WAY!
+tr '[a­z]' '[A­Z]'
+
+wc
+wc ­l /etc/passwd
+313 /etc/passwd
+$ grep ­i daniel /etc/passwd | wc ­l
+3
