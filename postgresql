@@ -1,0 +1,22 @@
+1.查询执行sql
+step1--stats_command_string = true :PostgreSQL的stats collector process监控每个session的sql语句
+step2--viewsql.sh: 根据pid查看进程的sql执行情况
+----------------
+
+#!/bin/sh # viewsql.sh #
+ # use to show all active session's sql in PostgreSQL.# ######################################################
+if test -z $1 ;then
+echo "Usage:$0 pid"
+exit 10
+fi
+echo "select * from (SELECT pg_stat_get_backend_pid(s.backendid) AS 
+procpid, pg_stat_get_backend_activity(s.backendid) AS current_query FROM 
+(SELECT pg_stat_get_backend_idset() AS backendid) AS s) as querystring 
+where procpid=$1;" | psql
+
+---------
+step3: viewsql.sh pid
+监控当前最占资源的的进程的sql
+top -b -c -n 1 |grep -v grep|grep -i postgre | awk '{print $1}'| while read i ;do ./viewsql.sh $i ; done;
+
+
