@@ -1,0 +1,28 @@
+1.install pandas in the centos
+
+yum install zeromq-devel  
+yum install gcc-gfortran  
+yum install freetype-devel  
+yum install libpng-devel  
+yum install atlas-devel  
+yum install bzip2-devel  
+yum install tk-devel  
+yum install tcl-devel 
+yum -y install blas blas-devel lapack-devel lapack
+yum -y install seaborn scipy
+yum -y install freetype freetype-devel libpng libpng-devel
+yum install gcc-c++
+
+
+yum -y install python-pip
+pip install -U setuptools
+pip install cython
+pip uninstall numpy
+pip install numpy==1.7.0
+pip install pandas==0.16.2
+
+2. check python package info 
+
+先用命令pip freeze查看已经安装的package及版本.
+如果安装了ansible,就执行命令pip uninstall ansible卸载之.
+最后运行命令pip install ansible==1.9.6安装我们要的版本.
